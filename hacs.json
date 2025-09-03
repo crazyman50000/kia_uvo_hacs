@@ -1,6 +1,8 @@
 {
-  "name": "Kia Uvo / Hyundai Bluelink",
-  "render_readme": true,
-  "homeassistant": "2025.1",
-  "content_in_root": false
+  "name": "Kia UVO Fix",
+  "content_in_root": false,
+  "domain": "kia_uvo",
+  "version": "2.44.1",
+  "zip_release": false,
+  "requirements": []
 }
