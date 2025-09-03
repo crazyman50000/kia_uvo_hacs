@@ -1,7 +1,7 @@
 {
   "name": "Kia UVO Fix",
   "content_in_root": false,
-  "domain": "kia_uvo",
+  "domain": "kia_uvo_fix",
   "version": "2.44.1",
   "zip_release": false,
   "requirements": []
