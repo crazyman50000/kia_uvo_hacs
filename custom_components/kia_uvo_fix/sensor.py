@@ -328,15 +328,25 @@ class HyundaiKiaConnectSensor(SensorEntity, HyundaiKiaConnectEntity):
         value = getattr(self.vehicle, self._key)
         if self._key == "ev_charging_current":
             return CHARGING_CURRENTS.get(value, None)
+
+        # Convert km to mi for distance sensors
+        if self._attr_device_class == SensorDeviceClass.DISTANCE and value is not None:
+            return round(value * 0.621371, 1)
+
         return value
+
 
     @property
     def native_unit_of_measurement(self):
         """Return the unit the value was reported in by the sensor"""
+        if self._attr_device_class == SensorDeviceClass.DISTANCE:
+            return "mi"
+
         if self._description.native_unit_of_measurement == DYNAMIC_UNIT:
             return getattr(self.vehicle, self._key + "_unit")
         else:
             return self._description.native_unit_of_measurement
+
 
     @property
     def state_attributes(self):
